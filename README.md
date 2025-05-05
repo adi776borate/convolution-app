@@ -1,12 +1,11 @@
-# Streamlit Signal Convolution Visualizer 🎛️✨
+# Signal Convolution Visualizer
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](your-streamlit-app-url.streamlit.app) <br>
-*(Replace the link above with your deployed Streamlit Cloud URL!)*
 
 An interactive web application built with Streamlit to visualize the convolution of two signals commonly encountered in electrical engineering and signal processing.
 
-![App Screenshot](link/to/your/screenshot.png) <br>
-*(Replace this with a link to a screenshot of your app! Upload the screenshot to your repo or use an image hosting service.)*
+![App Screenshot](screenshots/launch.png) <br>
+![App Screenshot](screenshots/plots.png) <br>
 
 ## Overview
 
@@ -48,10 +47,9 @@ To run this application locally, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
+    git clone https://github.com/adi776borate/convolution-app.git
     cd your-repo-name
     ```
-    *(Replace `your-username/your-repo-name` with your actual GitHub repo details)*
 
 2.  **Create a Virtual Environment (Recommended):**
     ```bash
@@ -66,7 +64,6 @@ To run this application locally, follow these steps:
     ```bash
     pip install -r requirements.txt
     ```
-    *(Make sure your `requirements.txt` file is up-to-date)*
 
 4.  **Run the Streamlit App:**
     ```bash
@@ -92,7 +89,6 @@ Contributions are welcome! If you have suggestions for improvements or want to a
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-*(Create a file named `LICENSE` in your repository and paste the text of the MIT License or another license of your choice into it)*
 
 ## Author
 
