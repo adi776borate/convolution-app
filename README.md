@@ -1,99 +1,66 @@
 # Signal Convolution Visualizer
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](your-streamlit-app-url.streamlit.app) <br>
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](your-streamlit-app-url.streamlit.app)
 
-An interactive web application built with Streamlit to visualize the convolution of two signals commonly encountered in electrical engineering and signal processing.
+An interactive web app built with Streamlit to help you visualize the convolution of two continuous-time signals.
 
-![App Screenshot](screenshots/launch.png) <br>
-![App Screenshot](screenshots/plots.png) <br>
+![App Screenshot](screenshots/launch.png)  
+![App Screenshot](screenshots/plots.png)
 
-## Overview
+---
 
-This application allows users to:
+## What It Does
 
-1.  Select or define two continuous-time signals, $f(t)$ and $g(t)$.
-2.  Visualize the individual signals $f(t)$ and $g(t)$.
-3.  Visualize their convolution $y(t) = (f * g)(t) = \int_{-\infty}^{\infty} f(\tau) g(t-\tau) d\tau$.
+- Lets you choose or define two signals: `f(t)` and `g(t)`
+- Shows plots for `f(t)`, `g(t)`, and their convolution `y(t) = (f * g)(t)`
+- Uses LaTeX-style math in plots for clarity
 
-The focus is on providing an intuitive understanding of signals and the convolution operation within the electrical engineering domain, featuring $\LaTeX$ style mathematical rendering in plots.
+---
 
 ## Features
 
-*   **Signal Selection:**
-    *   Choose from a library of standard signals (Unit Step, Pulses, Exponential, Ramp, Triangle, etc.).
-    *   Define custom signals using mathematical expressions involving `t` and the unit step `u(t, shift)`.
-    *   Define custom piecewise signals using standard mathematical notation or `u(t)` gating.
-*   **Interactive Plotting:**
-    *   Uses Plotly for interactive plots allowing zooming, panning, and hovering to inspect values.
-    *   Displays $f(t)$, $g(t)$, and the resulting $y(t)$ in separate subplots.
-    *   Clean dark mode background theme for plots.
-*   **Convolution Calculation:**
-    *   Performs numerical convolution using `numpy.convolve`.
-    *   Handles the special case where one signal is the standard **Unit Step**, performing numerical integration (`numpy.cumsum`) instead, correctly representing $f(t) * u(t) = \int_{-\infty}^{t} f(\tau) d\tau$.
-*   **Mathematical Rendering:** Displays signal definitions and plot labels using $\LaTeX$ notation via Plotly's MathJax support.
-*   **Configurable Parameters:** Allows adjusting the time range (`t_min`, `t_max`) and time step (`dt`) for the simulation.
+- **Signal Options:**
+  - Pick from common signals: unit step, ramp, pulse, triangle, exponential, etc.
+  - Or define your own using Python expressions (`t`, `u(t, shift)`, NumPy functions)
+  - Supports piecewise signals with conditions on `t`
 
-## Technologies Used
+- **Convolution Logic:**
+  - Uses `numpy.convolve` for standard cases
+  - Handles special case `f(t) * u(t)` using numerical integration
 
-*   **Python 3**
-*   **Streamlit:** For creating the interactive web application interface.
-*   **NumPy:** For numerical computations, array manipulation, and core signal generation.
-*   **SciPy:** For numerical integration and potentially interpolation (`interp1d`).
-*   **Plotly:** For generating interactive and publication-quality plots.
+- **Custom Time Settings:**
+  - Set your own time range and resolution (`t_min`, `t_max`, `dt`)
 
-## Setup and Local Execution
+---
 
-To run this application locally, follow these steps:
+## How to Run It Locally
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/adi776borate/convolution-app.git
-    cd your-repo-name
-    ```
-
-2.  **Create a Virtual Environment (Recommended):**
-    ```bash
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/adi776borate/convolution-app.git
+   cd convolution-app
+   ```
+2.  **Create a Virtual Environment (Optional):**
+    
+```bash
     python -m venv venv
     # On Windows
     .\venv\Scripts\activate
     # On macOS/Linux
     source venv/bin/activate
-    ```
+```
 
 3.  **Install Dependencies:**
-    ```bash
+    
+```bash
     pip install -r requirements.txt
-    ```
+```
 
 4.  **Run the Streamlit App:**
-    ```bash
+    
+```bash
     streamlit run app.py
-    ```
+```
 
-5.  Open your web browser and navigate to the local URL provided by Streamlit (usually `http://localhost:8501`).
+5.  Open your web browser and navigate to the http://localhost:8501.
 
-## Usage
-
-1.  Use the **sidebar** on the left to configure simulation parameters (`t_min`, `t_max`, `dt`).
-2.  Define **Signal 1 ($f(t)$)** and **Signal 2 ($g(t)$)** using one of the available methods:
-    *   **Choose Standard Signal:** Select from the dropdown list.
-    *   **Define using u(t):** Enter a Python/NumPy expression using `t` as the variable. Use `u(t, shift)` for the unit step $u(t-\text{shift})$ and `np.` for NumPy functions (e.g., `np.exp`, `np.sin`). Remember to use `*` for multiplication (e.g., `2 * t`, not `2t`).
-    *   **Define Piecewise:** Add segments defining the function's value over specific conditions on `t`. Use Python/NumPy syntax for conditions and values (e.g., `(t >= 0) & (t < 1)`).
-3.  The plots for $f(t)$, $g(t)$, and the convolution $y(t)$ will update automatically.
-4.  Interact with the plots (zoom, pan, hover) to explore the signals.
-
-## Contributing
-
-Contributions are welcome! If you have suggestions for improvements or want to add features (like discrete-time convolution, more signals, Fourier analysis, etc.), feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Author
-
-*   **Aditya Borate**
-
----
-
-Made with Streamlit, NumPy, and Plotly.
